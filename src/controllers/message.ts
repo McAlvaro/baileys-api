@@ -56,7 +56,7 @@ export const send: RequestHandler = async (req, res) => {
 			req.params.sessionId,
 			undefined,
 			"error",
-			message + ": " + e.message,
+			message + ": " + (e instanceof Error ? e.message : e),
 		);
 		res.status(500).json({ error: message });
 	}
@@ -89,7 +89,7 @@ export const sendBulk: RequestHandler = async (req, res) => {
 			const message = "An error occured during message send";
 			logger.error(e, message);
 			errors.push({ index, error: message });
-			emitEvent("send.message", sessionId, undefined, "error", message + ": " + e.message);
+			emitEvent("send.message", sessionId, undefined, "error", message + ": " + (e instanceof Error ? e.message : e));
 		}
 	}
 
@@ -183,7 +183,7 @@ export const deleteMessageForMe: RequestHandler = async (req, res) => {
 		const exists = await WhatsappService.jidExists(session, jid, type);
 		if (!exists) return res.status(400).json({ error: "JID does not exists" });
 
-		const result = await session.chatModify({ clear: { messages: [message] } }, jid);
+		const result = await session.chatModify({ clear: true }, jid);
 
 		res.status(200).json(result);
 	} catch (e) {

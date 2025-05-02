@@ -36,7 +36,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 				sessionId,
 				undefined,
 				"error",
-				`An error occured during messages set: ${e.message}`,
+				`An error occured during messages set: ${e instanceof Error ? e.message : e}`,
 			);
 		}
 	};
@@ -87,7 +87,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 							sessionId,
 							undefined,
 							"error",
-							`An error occured during message upsert: ${e.message}`,
+							`An error occured during message upsert: ${e instanceof Error ? e.message : e}`,
 						);
 					}
 				}
@@ -137,7 +137,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 					sessionId,
 					undefined,
 					"error",
-					`An error occured during message update: ${e.message}`,
+					`An error occured during message update: ${e instanceof Error ? e.message : e}`,
 				);
 			}
 		}
@@ -163,7 +163,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 				sessionId,
 				undefined,
 				"error",
-				`An error occured during message delete: ${e.message}`,
+				`An error occured during message delete: ${e instanceof Error ? e.message : e}`,
 			);
 		}
 	};
@@ -216,7 +216,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 					sessionId,
 					undefined,
 					"error",
-					`An error occured during message receipt update: ${e.message}`,
+					`An error occured during message receipt update: ${e instanceof Error ? e.message : e}`,
 				);
 			}
 		}
@@ -263,7 +263,7 @@ export default function messageHandler(sessionId: string, event: BaileysEventEmi
 					sessionId,
 					undefined,
 					"error",
-					`An error occured during message reaction update: ${e.message}`,
+					`An error occured during message reaction update: ${e instanceof Error ? e.message : e}`,
 				);
 			}
 		}

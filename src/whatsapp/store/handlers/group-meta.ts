@@ -33,7 +33,7 @@ export default function groupMetadataHandler(sessionId: string, event: BaileysEv
 				sessionId,
 				undefined,
 				"error",
-				`An error occured during groups upsert: ${e.message}`,
+				`An error occured during groups upsert: ${e instanceof Error ? e.message : e}`,
 			);
 		}
 	};
@@ -57,7 +57,7 @@ export default function groupMetadataHandler(sessionId: string, event: BaileysEv
 					sessionId,
 					undefined,
 					"error",
-					`An error occured during group metadata update: ${e.message}`,
+					`An error occured during group metadata update: ${e instanceof Error ? e.message : e}`,
 				);
 			}
 		}
@@ -130,7 +130,7 @@ export default function groupMetadataHandler(sessionId: string, event: BaileysEv
 				sessionId,
 				undefined,
 				"error",
-				`An error occured during group participants update: ${e.message}`,
+				`An error occured during group participants update: ${e instanceof Error ? e.message : e}`,
 			);
 		}
 	};
