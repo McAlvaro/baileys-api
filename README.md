@@ -1,5 +1,3 @@
-> 🚨 NOTICE: There is no time for maintance and so, this project will be archived and no longer receive updates. Thank you everyone who has been a part of this ❤️
-
 ---
 
 # Baileys API
@@ -91,7 +89,7 @@ SSE_MAX_QR_GENERATION="10"
 SESSION_CONFIG_ID="session-config"
 
 # API Key (for Authorization Header and Socket.io Token)
-API_KEY="a6bc226axxxxxxxxxxxxxx"
+API_KEY="9286725c273b0d0c2d339c26eddf44964ed1803d5c0fbd19e36554ba2d1516cb"
 ```
 
 ## Usage
